@@ -1,0 +1,11 @@
+<h2>Projects</h2>
+
+<% @project_items.each do |project_item| %>
+<section>
+  <h3><%= project_item.title %></h3>
+  <p><%= project_item.subtitle %></p>
+  <p><%= project_item.body %></p>
+
+  <%= image_tag project_item.thumb_image %>
+</section>
+<% end %>
