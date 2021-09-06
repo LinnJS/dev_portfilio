@@ -1,0 +1,19 @@
+<h2>Projects</h2>
+
+<nav>
+  <%= link_to "Create new project", new_project_path %>
+</nav>
+
+
+<% @project_items.each do |project_item| %>
+<section>
+  <h3><%= link_to project_item.title, project_path(project_item) %></h3>
+  <p><%= project_item.subtitle %></p>
+  <p><%= project_item.body %></p>
+
+<%= image_tag project_item.thumb_image unless project_item.thumb_image.nil? %>
+
+<%= link_to "Edit", edit_project_path(project_item) %>
+<%= link_to "Delete", project_path(project_item), method: :delete, data: { confirm: 'Are you sure?' } %>
+</section> 
+<% end %>
