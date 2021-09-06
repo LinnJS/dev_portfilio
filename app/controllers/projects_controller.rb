@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
+    @project_item = @project_item = Project.find(params[:id])
   end
 
   # GET /projects/new
@@ -48,4 +49,5 @@ class ProjectsController < ApplicationController
         end
     end
   end
+
 end

@@ -7,12 +7,12 @@
 
 <% @project_items.each do |project_item| %>
 <section>
-  <h3><%= project_item.title %></h3>
+  <h3><%= link_to project_item.title, project_path(project_item) %></h3>
   <p><%= project_item.subtitle %></p>
   <p><%= project_item.body %></p>
 
 <%= image_tag project_item.thumb_image unless project_item.thumb_image.nil? %>
 
-<%= link_to "Edit", edit_project_path(project_item.id) %>
+<%= link_to "Edit", edit_project_path(project_item) %>
 </section>
 <% end %>
