@@ -1,5 +1,10 @@
 <h2>Projects</h2>
 
+<nav>
+  <%= link_to "Create new project", new_project_path %>
+</nav>
+
+
 <% @project_items.each do |project_item| %>
 <section>
   <h3><%= project_item.title %></h3>
@@ -7,5 +12,7 @@
   <p><%= project_item.body %></p>
 
 <%= image_tag project_item.thumb_image unless project_item.thumb_image.nil? %>
+
+<%= link_to "Edit", edit_project_path(project_item.id) %>
 </section>
 <% end %>
