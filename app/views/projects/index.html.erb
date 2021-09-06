@@ -7,7 +7,7 @@
 
 <% @project_items.each do |project_item| %>
 <section>
-  <h3><%= link_to project_item.title, project_path(project_item) %></h3>
+  <h3><%= link_to project_item.title, project_show_path(project_item) %></h3>
   <p><%= project_item.subtitle %></p>
   <p><%= project_item.body %></p>
 
