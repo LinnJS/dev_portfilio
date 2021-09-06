@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :set_project, only: %i[show edit update destroy]
 
   # GET /project-items or /project-items.json
   def index 
@@ -7,7 +8,6 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
-    @project_item = @project_item = Project.find(params[:id])
   end
 
   # GET /projects/new
@@ -17,12 +17,11 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
-    @project_item = Project.find(params[:id])
   end
 
   # POST /projects or /projects.json
   def create
-    @project_item = Project.new(params.require(:project).permit(:title, :subtitle, :body))
+    @project_item = Project.new(project_params)
 
   respond_to do |format|
       if @project_item.save
@@ -37,10 +36,8 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1 or /projects/1.json
   def update
-    @project_item = @project_item = Project.find(params[:id])
-
     respond_to do |format|
-        if @project_item.update(params.require(:project).permit(:title, :subtitle, :body))
+        if @project_item.update(project_params)
           format.html { redirect_to projects_path, notice: "Project was successfully updated. 🎉" }
           format.json { render :show, status: :ok, location: @project_item }
         else 
@@ -52,12 +49,21 @@ class ProjectsController < ApplicationController
 
   # DELETE /projects/1 or /projects/1.json  
   def destroy
-    @project_item = @project_item = Project.find(params[:id])
-
     @project_item.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: "Blog was successfully destroyed. 💥" }
+      format.html { redirect_to projects_url, notice: "Project was successfully destroyed. 💥" }
       format.json { head :no_content }
     end
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project 
+    @project_item = Project.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def project_params
+    params.require(:project).permit(:title, :subtitle, :body)
   end
 end
