@@ -50,4 +50,14 @@ class ProjectsController < ApplicationController
     end
   end
 
+  # DELETE /projects/1 or /projects/1.json  
+  def destroy
+    @project_item = @project_item = Project.find(params[:id])
+
+    @project_item.destroy
+    respond_to do |format|
+      format.html { redirect_to projects_url, notice: "Blog was successfully destroyed. 💥" }
+      format.json { head :no_content }
+    end
+  end
 end

@@ -14,5 +14,6 @@
 <%= image_tag project_item.thumb_image unless project_item.thumb_image.nil? %>
 
 <%= link_to "Edit", edit_project_path(project_item) %>
-</section>
+<%= link_to "Delete", project_path(project_item), method: :delete, data: { confirm: 'Are you sure?' } %>
+</section> 
 <% end %>
