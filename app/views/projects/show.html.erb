@@ -5,3 +5,8 @@
 <p><em><%= @project_item.subtitle %></em></p>
 
 <p><%= @project_item.body %></p>
+
+<h3>technologies used</h3>
+<% @project_item.technologies.each do |tech| %>
+  <p><%= tech.name %> </p>
+<% end %>
