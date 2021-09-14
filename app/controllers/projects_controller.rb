@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new 
     @project_item = Project.new
+    3.times { @project_item.technologies.build }
   end
 
   # GET /projects/1/edit
@@ -64,6 +65,7 @@ class ProjectsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def project_params
-    params.require(:project).permit(:title, :subtitle, :body)
+    params.require(:project).permit(:title, :subtitle, :body, 
+      technologies_attributes: [:name])
   end
 end
