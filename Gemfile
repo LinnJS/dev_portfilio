@@ -56,3 +56,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # allows for user friendly ids on custom routes
 gem 'friendly_id', '~> 5.4.0'
+
+# railsed based authentication based off of warden
+gem 'devise', '~> 4.8'
