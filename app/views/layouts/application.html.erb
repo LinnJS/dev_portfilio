@@ -15,7 +15,9 @@
     <header>
       <%= render "shared/nav", location: 'top' %>
 
-       <%= render "shared/auth_links" %>
+       <section class="login">
+         <%= login_helper %>
+       </section> 
 
       <h1>DevPortfolio</h1>
 
