@@ -59,3 +59,6 @@ gem 'friendly_id', '~> 5.4.0'
 
 # railsed based authentication based off of warden
 gem 'devise', '~> 4.8'
+
+# adds normalize.css to rails app
+gem 'normalize-rails'
