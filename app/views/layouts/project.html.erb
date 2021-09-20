@@ -15,7 +15,9 @@
     <header>
       <%= render "shared/nav", location: "top" %>
 
-      <%= render "shared/auth_links" %>
+      <section class="login">
+         <%= login_helper %>
+       </section> 
 
       <h1>DevPortfolio</h1>
 
@@ -29,8 +31,6 @@
 
 
 
-    <% if session[:source] %>
-      <p>Thanks for visiting me from <%= session[:source] %></p>
-    <% end %>
+    <%= source_helper("Portfilio") %>
   </body>
 </html>

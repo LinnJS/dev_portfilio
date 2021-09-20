@@ -13,7 +13,9 @@
 
   <body>
     <header>
-      <%= render "shared/auth_links" %>
+      <section class="login">
+         <%= login_helper %>
+       </section> 
 
       <h1>DevPortfolio</h1>
 
@@ -25,8 +27,6 @@
 
     <%= render "shared/nav", location: 'bottom' %>
 
-    <% if session[:source] %>
-      <p>Thanks for visiting me from <%= session[:source] %></p>
-    <% end %>
+    <%= source_helper("blog") %>
   </body>
 </html>
