@@ -7,15 +7,15 @@
 
     <meta name="keywords" content="<%= @seo_keywords %>"/>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'projects', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-      <%= render "shared/nav", location: 'top' %>
+      <%= render "shared/nav", location: "top" %>
 
-       <section class="login">
+      <section class="login">
          <%= login_helper %>
        </section> 
 
@@ -26,9 +26,11 @@
     </header>
 
 
+
     <%= yield %>
 
+
+
     <%= source_helper("Portfilio") %>
-    
   </body>
 </html>

@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy]
+  layout "project"
 
   # GET /project-items or /project-items.json
   def index 
